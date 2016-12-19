@@ -3,11 +3,17 @@ require 'test_helper'
 class ProductsControllerTest < ActionController::TestCase
   setup do
     @product = products(:one)
-    @update = { title: 'Lorem Ipsum',
-                description: 'Wibbles are fun!',
-                image_url: 'lorem.jpg',
-                price: 19.95
-    }
+    @update = products(:one).tap do |p|
+      p.title = 'Lorem Ipsum',
+      p.description = 'Wibbles are fun!',
+      p.image_url = 'lorem.jpg'
+      p.price  = 19.95
+    end
+    # @update[:title] =  'Lorem Ipsum'
+    # @update[:description] = 'Wibbles are fun!',
+    # @update[:image_url] = 'lorem.jpg'
+    # @update[:price] = 19.95
+
   end
 
   test "should get index" do
@@ -23,7 +29,7 @@ class ProductsControllerTest < ActionController::TestCase
 
   test "should create product" do
     assert_difference('Product.count') do
-      post :create, Product.new( :title => @update.title, description: @update.description, image_url: @update.image_url, price: @update.price )
+      post :create, product: { :title => @update.title, description: @update.description, image_url: @update.image_url, price: @update.price }
     end
 
     assert_redirected_to product_path(assigns(:product))
@@ -46,6 +52,8 @@ class ProductsControllerTest < ActionController::TestCase
 
   test "should destroy product" do
     assert_difference('Product.count', -1) do
+      item = LineItem.find_by(product_id: @product)
+      LineItem.find_by(product_id: @product).destroy_all if item
       delete :destroy, id: @product
     end
 
@@ -54,7 +62,7 @@ class ProductsControllerTest < ActionController::TestCase
 
   test "can't delete products in a cart" do
     assert_difference('Product.count', 0) do
-      delete product_url(products(:two))
+      delete :destroy, id: products(:two)
     end
 
     assert_redirected_to products_url

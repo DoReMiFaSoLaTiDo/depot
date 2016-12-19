@@ -13,7 +13,7 @@ class Product < ActiveRecord::Base
 
   private
 
-    def ensure_not_referenced_by_any_line_items
+    def ensure_not_referenced_by_any_line_item
       unless line_items.empty?
         errors.add(:base, 'Line Items present')
         throw :abort
