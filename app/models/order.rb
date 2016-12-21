@@ -6,6 +6,18 @@ class Order < ActiveRecord::Base
       "Purchase Order"  => 2
   }
 
+  # enum pay_type_hash: {
+  #     "Checks"           => 0,
+  #     "Credit Cards"     => 1,
+  #     "Purchase Orders"  => 2
+  # }
+
+  enum de_pago: {
+      "Comprobar"           => 0,
+      "Tarjeta de cr&eacute;dito"     => 1,
+      "Orden de compra"  => 2
+  }
+
   validates :name, :address, :email, presence: true
   validates :pay_type, inclusion: pay_types.keys
 
@@ -14,5 +26,9 @@ class Order < ActiveRecord::Base
       item.cart_id = nil
       line_items << item
     end
+  end
+
+  def payment_type
+    I18n.t()
   end
 end

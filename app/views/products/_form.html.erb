@@ -23,6 +23,11 @@
     <%= f.label :image_url %><br>
     <%= f.text_field :image_url %>
   </div>
+  <div>
+    <%= f.label :locale, t('.locale') %><br>
+    <%= f.select :locale, options_for_select(LANGUAGES, I18n.locale.to_s), prompt: "Set Locale" %>
+  </div>
+
   <div class="field">
     <%= f.label :price %><br>
     <%= f.text_field :price %>
