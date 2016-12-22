@@ -2,10 +2,9 @@ es:
 
   thanks:         "Gracias por su pedido"
 
-  pay_type_hash:
-      check:            "Comprobar"
-      credit_card:      "Tarjeta de cr&eacute;dito"
-      purchase_order:   "Orden de compra"
+  check:            "Comprobar"
+  credit:      "Tarjeta de crédito"
+  purch:        "Orden de compra"
 
   number:
     currency:

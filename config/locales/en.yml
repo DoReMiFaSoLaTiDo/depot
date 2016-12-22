@@ -23,10 +23,10 @@ en:
 
   thanks:         "Thank you for your order"
 
-  pay_type:
-    check:            "Check"
-    credit_card:      "Credit Card"
-    purchase_order:   "Purchase Order"
+
+  check:            "Check"
+  credit:      "Credit Card"
+  purch:   "Purchase Order"
 
 
   number:
@@ -78,6 +78,9 @@ en:
       name:                   "Name"
       address_html:           "Address"
       email:                  "E-mail"
+      check:                  "Check"
+      credit:                 "Credit Card"
+      purch:                  "Purchase Order"
       locale:                 "Locale"
       locale_prompt_html:     "Select Locale"
       price:                  "Price"

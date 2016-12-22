@@ -1,10 +1,10 @@
 #encoding: utf-8
 I18n.default_locale = :en
 
-I18n.available_locales = [:ES_es, :es, :en]
+I18n.available_locales = [ :en, :es,:es_es]
 
 LANGUAGES = [
     ['English',                  'en'],
     ["Espa&ntilde;ol".html_safe, 'es'],
-    ["Spanish",                  'ES_es']
+    ["Spanish",                  'es_es']
 ]
