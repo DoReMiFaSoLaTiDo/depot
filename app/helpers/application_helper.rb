@@ -8,9 +8,9 @@ module ApplicationHelper
   end
 
   def currency_converter(loc, price)
-    exchange_rate =  { "ES_es" => 0.96, "en" => 1 }
+    exchange_rate =  { es_es: 0.96, en: 1, es: 0.96 }
     if exchange_rate.include? loc
-      price = amount * exchange_rate[loc]
+      price = price * exchange_rate[loc]
     else
       price
     end
