@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery-ui/effects/effect-blind
 //= require jquery_ujs
+//= require cable
 //= require turbolinks
 //= require_tree .

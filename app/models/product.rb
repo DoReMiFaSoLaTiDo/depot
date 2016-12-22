@@ -6,7 +6,7 @@ class Product < ActiveRecord::Base
       with: %r{\.(gif|jpg|png)\Z}i,
       message: 'must be a URL for GIF, JPG or PNG image.'
   }
-  attr_accessor :description
+
   has_many :line_items
 
   before_destroy :ensure_not_referenced_by_any_line_item
